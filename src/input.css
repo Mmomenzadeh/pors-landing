@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Dana";
+    src: local("Dana"),
+      url("../font/Dana/DanaFaNum-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Dana Medium";
+    src: local("Dana Medium"),
+      url("../font/Dana/DanaFaNum-Medium.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Dana DemiBold";
+    src: local("Dana DemiBold"),
+      url("../font/Dana/DanaFaNum-DemiBold.woff2") format("woff2");
+  }
+
+  /* Morabba */
+
+  @font-face {
+    font-family: "Morabba Light";
+    src: local("Morabba Light"),
+      url("../font/Morabba/Morabba-Light.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Morabba Medium";
+    src: local("Morabba Medium"),
+      url("../font/Morabba/Morabba-Medium.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Morabba Bold";
+    src: local("Morabba Bold"),
+      url("../font/Morabba/Morabba-Bold.woff2") format("woff2");
+  }
+
+  body {
+    @apply font-Dana;
+  }
+}
+
+@layer components {
+  .mobileSubmenu-btn-open {
+    @apply cursor-pointer;
+  }
+
+  .mobileSubmenu {
+    @apply hidden pr-7 child:my-3 text-gray-600 text-sm dark:text-white;
+  }
+  .mobileSubmenu_open {
+    @apply flex flex-col;
+  }
+
+  .mobileSubmenu_active {
+    @apply relative text-orange-300 pr-3;
+  }
+
+  .mobileSubmenu_active::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    background-color: #fdba74;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+  }
+
+  .hideOverlay {
+    @apply invisible opacity-0;
+  }
+
+  .showOverlay {
+    @apply visible opacity-100;
+  }
+
+  .appBackground {
+    background-color: #f4ece1;
+  }
+
+  .circle {
+    @apply rounded-full flex justify-center items-center;
+  }
+  .circle-lg {
+    @apply w-[203px] h-[203px] border-solid border border-white/25;
+  }
+  .circle-md {
+    @apply w-[145px] h-[145px] border-solid border border-white/50;
+  }
+  .circle-sm {
+    @apply w-[95px] h-[95px] border-solid border border-white/75;
+  }
+
+  @media (min-width: 1024px) {
+    html.dark {
+      .products {
+        /* background-image: url("../images/body-bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center; */
+      }
+    }
+
+    .products {
+      background-color: #f4ece1;
+    }
+  }
+
+  .products-title {
+    @apply text-2xl md:text-5xl font-MorabbaMedium text-zinc-700 dark:text-white leading-6;
+  }
+  .products-subTitle {
+    @apply block   text-lg md:text-3xl font-MorabbaLight text-zinc-700 dark:text-white  mt-2;
+  }
+  .products-link {
+    @apply flex items-center gap-x-1 text-base md:text-xl text-orange-300  tracking-tightest hover:bg-orange-300/20 h-10  rounded-md px-2;
+  }
+
+  .offer {
+    @apply relative text-gray-400;
+  }
+
+  .offer::after {
+    content: "";
+    position: absolute;
+    background-color: #ef4444;
+    width: 100%;
+    height: 1px;
+    inset: 0;
+    bottom: 2px;
+    margin: auto;
+  }
+
+  .category-item_1 {
+    background: linear-gradient(
+          270deg,
+          rgba(0, 0, 0, 0.6) 33.85%,
+          rgba(0, 0, 0, 0.1)
+        )
+        100%,
+      url("../images/categories/category-right.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 1rem;
+
+    height: 248px;
+
+    @apply text-white flex items-center pr-7 lg:pr-12;
+  }
+
+  .category-item_2 {
+    background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0.6) 33.85%,
+        rgba(0, 0, 0, 0.1) 100%
+      ),
+      url("../images/categories/category-left.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    height: 248px;
+
+    @apply text-white flex items-center pr-7 lg:pr-12;
+  }
+
+  .text-category {
+    @apply text-sm lg:text-xl text-zinc-700 dark:text-white font-DanaDemiBold mt-[6px] lg:mt-2.5;
+  }
+
+  .productsStyle {
+    @apply bg-white dark:bg-zinc-700 text-zinc-700 dark:text-white shadow-normal rounded-2xl;
+  }
+
+  .btn-Advertising {
+    background: linear-gradient(270deg, #fdba74 0%, #fed7aa 100%);
+    @apply font-DanaMedium text-sm py-1.5 pr-2.5 rounded-2xl;
+  }
+
+  .Advertising-bg {
+    background: linear-gradient(
+      90deg,
+      rgb(16, 185, 129) 0%,
+      rgb(5, 150, 105) 100%
+    );
+  }
+
+  .services {
+    position: relative;
+  }
+
+  .services::after,
+  .services::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #d1d5db;
+  }
+
+  html.dark .services::after,
+  html.dark .services::before {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .services::after {
+    width: calc(100% - 1rem);
+    height: 1px;
+  }
+
+  .services::before {
+    height: calc(100% + 20px);
+    width: 1px;
+  }
+
+  @media (min-width: 1024px) {
+    .services::after,
+    .services::before {
+      content: none;
+    }
+  }
+
+  .social-btn {
+    @apply rounded-xl flex-grow;
+  }
+
+  .ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+/*  */
+
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100");
